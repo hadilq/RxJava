@@ -1031,11 +1031,12 @@ public final class ReplaySubject<T> extends Subject<T> {
         private static final long serialVersionUID = 1107649250281456395L;
 
         final int maxSize;
-        int size;
+
+        volatile int size;
 
         volatile Node<Object> head;
 
-        Node<Object> tail;
+        volatile Node<Object> tail;
 
         volatile boolean done;
 
@@ -1256,11 +1257,12 @@ public final class ReplaySubject<T> extends Subject<T> {
         final long maxAge;
         final TimeUnit unit;
         final Scheduler scheduler;
-        int size;
+
+        volatile int size;
 
         volatile TimedNode<Object> head;
 
-        TimedNode<Object> tail;
+        volatile TimedNode<Object> tail;
 
         volatile boolean done;
 
